@@ -1,0 +1,55 @@
+<div class="container-fluid" style="margin-top:15px" *ngIf="movieData != null">
+    <div class="row">
+      <div class="col-md-3" style="justify-content: center;align-items: center;">
+        <img [src]="movieData.poster" alt="{{movieData.movie}}" class="img-fluid" style="height:600px;text-align:center">
+      </div>
+      <div class="col-md-7" style="margin-top:10px">
+        <h1><strong>{{movieData.movie}}</strong></h1>
+        <h5><strong>Languages &nbsp;:</strong>&nbsp; {{movieData.language}}</h5>
+        <h5><strong>Category &nbsp;:</strong>&nbsp;{{movieData.tags}}</h5>
+        <h5><strong>Duration &nbsp;:</strong>&nbsp;{{convertTime(movieData.length)}}</h5>
+        <h5><strong>Release Date &nbsp;:</strong>&nbsp;{{movieData.release_date}}</h5>
+        <h5><strong>Rating &nbsp;:</strong>&nbsp;{{movieData.rating}}</h5>
+      </div>
+      <div class="col-md-2" style="text-align:right">
+        <button class="btn btn-primary" style="width: 100px;height: 50px;border-radius: 32px;" (click)="goBack()">Go Back</button>
+      </div>
+    </div>
+    <hr>
+    <h3><strong>Available Theaters & Shows :</strong></h3>
+    <hr>
+    <div class="container-fluid">
+   <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="row" *ngFor="let theater of movieData.theaters" style="border:1px solid black">
+            <div class="col-md-3" style="padding:0px">
+                <img [src]="theater.thumbnail_url" alt="{{theater.theatre_name}}" class="img-fluid" style="height:100%">
+              </div>
+              <div class="col-md-9" style="margin-top:10px;font-weight:bold">
+                <h2><strong>{{theater.theatre_name}}</strong></h2>
+                <p><strong>Location &nbsp;:</strong>&nbsp;{{theater.address}}</p>
+                <p><strong>Website &nbsp;:</strong>&nbsp;<a [href]="theater.website" target="_blank">{{theater.website}}</a></p>
+                <p><strong>Customers Rating &nbsp;:</strong>&nbsp;{{theater.customer_rating}}</p>
+                <div><strong>Booking Date &nbsp;:&nbsp;</strong>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [min]="today" [max]="maxDate" (dateChange)="onDateSelected($event)">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                </div>
+                <h5 *ngIf="BookingDate != null"><strong>Available Shows &nbsp; :</strong>
+                    <span *ngFor="let show of theater.shows" style="margin:0px 25px">
+                        <button class="btn btn-outline-primary" (click)="openSeats(show,theater.theatre_name,movieData.movie,theater.booked_times)">{{show}}</button>
+                    </span>
+                </h5>
+              </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+   </div>
+</div>
+
+    
+  </div>
+  

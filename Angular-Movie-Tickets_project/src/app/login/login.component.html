@@ -1,0 +1,25 @@
+<div class="container-fluid vh-100">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body px-5 vh-10">
+                <!-- <div class="text-center">
+                     <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+                </div> -->
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+                <p style="text-align: center;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your email to continue
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" class="form-control" formControlName="user_mail_id"
+                            name="email" />
+                            <small class="text-white" *ngIf="!(loginForm.get('user_mail_id')?.valid) && loginForm.get('user_mail_id')?.dirty && loginForm.get('user_mail_id')?.touched">Please enter valid email</small>
+                    </div>
+                     <input type="submit" class="btn btn-primary w-100" value="Login" name="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

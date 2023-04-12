@@ -1,0 +1,38 @@
+<!-- <pre>{{movies |json}}</pre> -->
+
+<div class="col-md-10 offset-md-1 mt-7">
+
+    <div class="container-fluid" >
+        <div class="movie-card" *ngFor="let movie of movies" >
+            <div (click)="navigateToMovie(movie)"> 
+                <div class="movie">
+                        <!-- <a [routerLink]="['/movie',movie.movie_name]">
+                            <div class="movie-header" style="background: url({{movie.thumbnail_url}}); background-size:cover; background-position: center; background-repeat: no-repeat; ">
+                            </div>
+                    </a> -->
+                    <img [src]="movie.thumbnail_url" alt="Movie Poster">
+                        <div class="rating">{{movie.imdb_rating}}</div>
+                </div>
+                <div class="container-fluid movie-content">
+                    <div class="row movie-content-header">
+                    <div class="col-8">
+                            <a [routerLink]="['/movie',movie.movie_name]">
+                                <h3 class="movie-title" [title]="movie.movie_name">{{movie.movie_name}}</h3>
+                            </a>
+                    </div> 
+                    <div class="col-4 imax-logo"></div>
+                    </div>
+                    <div class="movie-info">
+                        <div class="info-section" [title]="movie.language">
+                            {{movie.language}}
+                        </div>
+                        <div class="info-section" [title]="movie.tags">
+                            {{movie.tags}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    

@@ -1,0 +1,19 @@
+
+<div class="close">
+    <mat-icon (click)="closeDialog()" class="closeIcon">{{'close'}}</mat-icon>
+  </div>
+  <div class="screen">
+    <h6>Movie Screen</h6>
+</div>
+<div class="seats-container">
+  <div class="seat-row" *ngFor="let row of seats">
+    <div *ngFor="let seat of row" (click)="selectSeat(seat)">
+      <button [disabled]="seat.booked" [ngClass]="{'selected': seat.selected}">
+        {{seat.number}}
+      </button>
+    </div>
+    <div class="gap" *ngIf="row.length === 5"></div>
+  </div>
+</div>
+<div class="text-center"><button class="btn btn-primary" style="width: 200px;" (click)="submit()">Book Selected Seats</button></div>
+<p class="selected-seats">Selected Seats: {{selectedSeats.join(', ')}}</p>

@@ -1,0 +1,227 @@
+body {
+    height: 100%;
+    width: 100%;
+    background: #e9e9e9;
+  
+    font-weight: 400;
+    font-size: 14px;
+    color: #f8f8f8;
+  }
+  
+  * {
+    -webkit-transition: 300ms;
+    transition: 300ms;
+  }
+  
+  .intro {
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  h1, h2, h3, h4, h5, p {
+    font-weight: 400;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    color: #6ABCEA;
+  }
+  
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  .movie-card {
+    background: #ffffff;
+    box-shadow: 10px 28px 28px rgba(14, 13, 13, 0.1);
+    width: 100%;
+    height:510px;
+    max-width: 315px;
+    margin: 2em;
+    border-radius: 10px;
+    display: inline-block;
+    cursor:pointer;
+  }
+  
+  .movie-header {
+    padding: 0;
+    margin: 0;
+    height: 367px;
+    width: 100%;
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .header-icon-container {
+    position: relative;
+  }
+  
+  .header-icon {
+    width: 100%;
+    height: 367px;
+    line-height: 367px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 54px;
+    text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+    opacity: .85;
+  }
+  
+  .header-icon:hover {
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 74px;
+    text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 1;
+  }
+  
+  .movie-card:hover {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .movie-content {
+    padding: 18px 18px 24px 18px;
+    margin: 0;
+  }
+  
+  .movie-content-header, .movie-info {
+    // display: table;
+    width: 100%;
+    height:50px;
+  }
+  
+  .movie-title {
+    word-wrap: break-word;
+    margin: 0px 0px 4px;
+    word-break: break-word;
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.33;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .imax-logo {
+    width: 85px;
+    height: 15px;
+    background: url("/assets/images/dolby-atoms.jpg") no-repeat;
+    background-size: contain;
+    display: table-cell;
+    float: right;
+    position: relative;
+    margin-top: 5px;
+  }
+  
+  .movie-info {
+    margin-top: 5px;
+  }
+  
+  .info-section {
+    width: 275px;
+    margin: 0px 0px 4px;
+    word-break: break-word;
+    color: rgb(102, 102, 102);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.43;
+    letter-spacing: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .movie-card {
+      width: 95%;
+      max-width: 95%;
+      margin: 1em;
+      display: block;
+    }
+  
+    .container {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  
+  .movie {
+    padding: 0;
+    margin: 0;
+    height: 367px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    .rating {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #060606b5;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+    }
+}
+
+.movie:hover {
+    background-color: white;
+    color: black;
+}
+
+.movie:hover .rating {
+    opacity: 1;
+}
